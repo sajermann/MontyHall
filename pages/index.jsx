@@ -1,9 +1,12 @@
-import Presente from "../components/Presente";
+import Door from "../components/Door";
+import Present from "../components/Present";
 
 export default function Home() {
   return (
-    <div>
-      <Presente />
+    <div style={{display: 'flex'}}>
+      {/* <Present /> */}
+      <Door selected />
+      <Door />
     </div>
   )
 }

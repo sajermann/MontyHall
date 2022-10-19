@@ -24,3 +24,8 @@ a {
     background: #444;
   }
 }
+
+:root {
+  --area-door-width: 200px;
+  --area-door-height: 310px;
+}

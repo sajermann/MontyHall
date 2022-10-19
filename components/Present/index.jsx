@@ -1,6 +1,6 @@
 import styles from './index.module.css'
 
-export default function Presente(){
+export default function Present(){
   return(
     <div className={styles.container}>
       <div className={styles.top}>
