@@ -9,19 +9,32 @@ interface Props {
 export default function Door({ value, onChange }: Props) {
   console.log({ value });
   const door = value;
-  const selectedDoor = door.isSelected ? styles.selected : "";
-  function toogleSelection(e){
-    onChange(value.toggleSelection())
+  const selectedDoor = door.isSelected && !door.isOpened ? styles.selected : "";
+  function toogleSelection() {
+    onChange(value.toggleSelection());
+  }
+
+  function handleOpenDoor(e){
+    e.stopPropagation()
+    onChange(door.open());
+  }
+
+  function renderDoor() {
+    return (
+        <div className={styles.door}>
+          <div className={styles.number}>{door.number}</div>
+          <div className={styles.knob} onClick={handleOpenDoor} />
+        </div>
+    );
   }
 
   return (
     <div className={styles.container} onClick={toogleSelection}>
       <div className={`${styles.frame} ${selectedDoor}`}>
-        <div className={styles.door}>
-          <div className={styles.number}>{door.number}</div>
-          <div className={styles.knob} />
-        </div>
+      {!door.isOpened && renderDoor()}
+
       </div>
+
       <div className={styles.floor}></div>
     </div>
   );
