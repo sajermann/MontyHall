@@ -7,7 +7,6 @@ interface Props {
 }
 
 export default function Door({ value, onChange }: Props) {
-  console.log({ value });
   const door = value;
   const selectedDoor = door.isSelected && !door.isOpened ? styles.selected : "";
   function toogleSelection() {
