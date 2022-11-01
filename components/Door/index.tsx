@@ -1,4 +1,5 @@
 import DoorModel from "../../model/DoorModel";
+import Present from "../Present";
 import styles from "./index.module.css";
 
 interface Props {
@@ -30,7 +31,7 @@ export default function Door({ value, onChange }: Props) {
   return (
     <div className={styles.container} onClick={toogleSelection}>
       <div className={`${styles.frame} ${selectedDoor}`}>
-      {!door.isOpened && renderDoor()}
+      {door.isClosed ? renderDoor() : door.hasPresent ? <Present /> : false}
 
       </div>
 
