@@ -20,7 +20,7 @@ export default function Game() {
     const quantityValidDoors = doorsQuantity >= 3 && doorsQuantity <= 100;
     const validPresentDoor = presentDoor >= 1 && presentDoor <= doorsQuantity;
     setValid(quantityValidDoors && validPresentDoor);
-  }, [doors]);
+  }, [doors, router.query]);
 
   function renderDoors() {
     return doors.map((door) => (
@@ -38,7 +38,7 @@ export default function Game() {
         {valid ? renderDoors() : <h1>Valores Inválidos</h1>}
       </div>
       <div className={styles.buttons}>
-        <Link href="/">
+        <Link href="/" passHref>
           <button>Reiniciar Jogo</button>
         </Link>
       </div>
